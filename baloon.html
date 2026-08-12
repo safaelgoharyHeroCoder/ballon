@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Balloon Party</title>
+
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+
+body{
+
+    background:#dff9fb;
+    padding-top:30px;
+
+}
+
+.panel{
+
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+
+}
+
+.sky{
+
+    height:500px;
+    background:linear-gradient(#87CEEB,#E0F7FA);
+    border-radius:10px;
+    position:relative;
+    overflow:hidden;
+
+}
+
+#balloon{
+
+    position:relative;
+    top:320px;
+    left:50px;
+    font-size:90px;
+
+}
+
+.cloud{
+
+    position:absolute;
+    font-size:45px;
+
+}
+
+#c1{
+
+    top:30px;
+    left:120px;
+
+}
+
+#c2{
+
+    top:80px;
+    right:100px;
+
+}
+
+.btn{
+
+    margin:5px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="panel panel-info">
+
+<div class="panel-heading text-center">
+
+<h2 id="title">🎈 Balloon Party</h2>
+
+</div>
+
+<div class="panel-body">
+
+<div class="sky">
+
+<div id="c1" class="cloud">☁️</div>
+
+<div id="c2" class="cloud">☁️</div>
+
+<div id="balloon">🎈</div>
+
+</div>
+
+<br>
+
+<div class="text-center">
+
+<button id="fly" class="btn btn-success btn-lg">
+Fly
+</button>
+
+<button id="down" class="btn btn-warning btn-lg">
+Down
+</button>
+
+<button id="grow" class="btn btn-primary btn-lg">
+Grow
+</button>
+
+<button id="shrink" class="btn btn-danger btn-lg">
+Shrink
+</button>
+
+<button id="magic" class="btn btn-info btn-lg">
+Magic
+</button>
+
+<button id="reset" class="btn btn-default btn-lg">
+Reset
+</button>
+
+<button id="stop" class="btn btn-primary btn-lg">
+Stop
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+// Fly
+
+$("#fly").click(function(){
+
+    $("#balloon").animate({
+
+        top:"40px"
+
+    },2000);
+
+});
+
+// Down
+
+$("#down").click(function(){
+
+    $("#balloon").animate({
+
+        top:"320px"
+
+    },2000);
+
+});
+
+// Grow
+
+$("#grow").click(function(){
+
+    $("#balloon").animate({
+
+        fontSize:"+=30px"
+
+    },600);
+
+});
+
+// Shrink
+
+$("#shrink").click(function(){
+
+    $("#balloon").animate({
+
+        fontSize:"-=30px"
+
+    },600);
+
+});
+
+// Magic
+
+$("#magic").click(function(){
+
+    $("#balloon")
+
+    .animate({
+
+        left:"+=250px"
+
+    },700)
+
+    .animate({
+
+        top:"80px"
+
+    },700)
+
+    .animate({
+
+        fontSize:"+=40px"
+
+    },500)
+
+    .animate({
+
+        fontSize:"-=40px"
+
+    },500)
+
+    .fadeOut(500)
+
+    .fadeIn(500)
+
+    .animate({
+
+        left:"50px",
+
+        top:"320px"
+
+    },1000,function(){
+
+        $("#title")
+        .text("🎉 Happy Balloon Party!");
+
+        alert("🎈 Balloon Party Finished!");
+
+    });
+
+});
+
+// Reset
+
+$("#reset").click(function(){
+
+    $("#balloon").stop(true,true);
+
+    $("#balloon").css({
+
+        top:"320px",
+
+        left:"50px",
+
+        fontSize:"90px",
+
+        display:"block"
+
+    });
+
+    $("#title").text("🎈 Balloon Party");
+
+});
+
+// Stop
+
+$("#stop").click(function(){
+
+    $("#balloon").stop();
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>
